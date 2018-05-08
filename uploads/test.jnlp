@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BitMinter Client JNLP file -->
+<jnlp spec="6.0+" codebase="https://bitminter.com/client/"
+      href="test.jnlp">
+  <information>
+    <title>BitMinter Client</title>
+    <vendor>BitMinter.com</vendor>
+    <homepage href="https://bitminter.com/"/>
+    <description>BitMinter</description>
+    <description kind="short">Mining for the digital mint</description>
+    <icon href="bitminter256x256.png" width="256" height="256"/>
+    <icon href="bitminter64x64.png"   width="64"  height="64"/>
+    <icon href="bitminter48x48.png"   width="48"  height="48"/>
+    <icon href="bitminter32x32.png"   width="32"  height="32"/>
+    <icon href="bitminter16x16.png"   width="16"  height="16"/>
+    <icon kind="splash" href="bitmintersplash.png"/>
+    <shortcut online="true" install="true">
+      <desktop/>
+      <menu submenu="BitMinter"/>
+    </shortcut>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <offline-allowed/>
+  <update check="always" policy="always"/>
+  <application-desc main-class="com.bitminter.client.Main"/>
+  <resources>
+    <property name="com.bitminter.client.auth.username" value="Test" />
+    <property name="com.bitminter.client.auth.workername" value="Test" />
+    <property name="com.bitminter.client.auth.password" value="Test" />
+    <property name="com.bitminter.client.auth.lock" value="true" />
+    <property name="com.bitminter.client.startup.infomsg"
+	      value="You are running a test version of this program. To get paid, register at bitminter.com and run the normal program." />
+    <java version="1.6+" initial-heap-size="40m" max-heap-size="800m"
+	  java-vm-args=""/>
+    <jar href="bitminter.jar"/>
+    <jar href="scala-library.jar"/>
+    <jar href="scala-swing.jar"/>
+    <jar href="scala-actors.jar"/>
+    <jar href="SteelSeries-3.9.30.jar"/>
+    <jar href="trident-6.3.jar"/>
+    <jar href="audio.jar" download="lazy"/>
+    <jar href="quartz-2.1.1.jar"/>
+    <jar href="images.jar"/>
+    <jar href="slf4j-api-1.7.5.jar"/>
+    <jar href="lwjgl-2.8.4.jar"/>
+    <jar href="lwjgl_util-2.8.4.jar"/>
+    <jar href="coincore-1.9.2.jar"/>
+    <jar href="gridnode-1.3.1.jar"/>
+    <jar href="purejavacomm-0.0.22.jar"/>
+    <jar href="jna-4.1.0.jar"/>
+    <jar href="jna-platform-4.1.0.jar"/>
+    <jar href="netty-all-4.0.23.Final.jar"/>
+    <jar href="httpclient-4.3.5.jar"/>
+    <jar href="httpcore-4.3.2.jar"/>
+    <jar href="httpcore-nio-4.3.2.jar"/>
+    <jar href="lift-json_2.10-2.5.jar"/>
+    <jar href="paranamer-2.5.2.jar"/>
+  </resources>
+
+  <!-- LWJGL Linux 64-bit native libraries -->
+  <resources os="Linux" arch="amd64 x86_64">
+    <nativelib href="lwjgl-amd64-linux.jar"/>
+  </resources>
+
+  <!-- LWJGL Linux 32-bit native libraries -->
+  <resources os="Linux" arch="x86 i386">
+    <nativelib href="lwjgl-x86-linux.jar"/>
+  </resources>
+
+  <!-- LWJGL Windows 64-bit native libraries -->
+  <resources os="Windows" arch="amd64 x86_64">
+    <nativelib href="lwjgl-amd64-win.jar"/>
+  </resources>
+
+  <!-- LWJGL Windows 32-bit native libraries -->
+  <resources os="Windows" arch="x86 i386">
+    <nativelib href="lwjgl-x86-win.jar"/>
+  </resources>
+
+  <!-- LWJGL MAC OS/X native libraries -->
+  <resources os="Mac">
+    <nativelib href="lwjgl-macosx.jar"/>
+  </resources>
+
+</jnlp>
