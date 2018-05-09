@@ -19,7 +19,7 @@ app.post('/getFormData', function (req, res){
     form.parse(req);
 
     form.on('fileBegin', function (name, file){
-        //file.path = __dirname + '/uploads/' + file.name;
+        file.path = __dirname + '/uploads/' + file.name;
     });
 
     form.on('file', function (name, file){
@@ -50,16 +50,8 @@ app.post('/getFormData', function (req, res){
 });
 
 //this will display all db entries
-app.get('/viewEntries', function(req, res){
-	mc.connect(dbUrl, function(err, db){
-		if (err) throw err;
-		var dbObject = db.db("FormTestDB");
-		dbObject.collection("people").find({}).toArray(function(err, result){
-			if (err) throw err;
-			console.log(result);
-			db.close();
-		});
-	});
+app.get('/dashboard', function(req, res){
+	res.send('/dash.html')
 });
 
 function storeData(postData){
