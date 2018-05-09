@@ -5,6 +5,8 @@ var dbUrl = "mongodb://localhost:27017/FormTestDB";
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function (req, res){
     res.sendFile(__dirname + '/form.html');
 });
@@ -51,7 +53,16 @@ app.post('/getFormData', function (req, res){
 
 //this will display all db entries
 app.get('/dashboard', function(req, res){
-	res.send('/dash.html')
+	mc.connect(dbUrl, function(err, db){
+		if (err) throw err;
+		var col = db.db('FormTestDB');
+		col.collection('people').find({}).toArray(function(err, result){
+			if (err) throw err;
+			console.log(result);
+			res.render('pages/dash', {people: result});
+			db.close();
+		});
+	});
 });
 
 function storeData(postData){
