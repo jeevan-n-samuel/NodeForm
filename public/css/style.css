@@ -1,0 +1,62 @@
+* { 
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	color: #f1f1f1;
+}
+
+th{
+	font-weight: 900;
+}
+
+tr:hover {
+  background-color: #111;
+}
+
+
+
+.logo{
+	font-weight: 900;
+	font-size: 75px;
+	letter-spacing: 5px ; 
+}
+
+h1{
+	font-weight: 900;
+	text-align: center;
+}
+
+select{
+    background: #000;
+    background-color: #000;
+    color:#000;
+    font-weight: 100;
+}
+
+label{
+	font-weight: 400;
+}
+
+input[type='text'], input[type='number'], input[type='email'], input[type='date'], input[type='file'], button[type='submit']{
+	background-color: #000000;
+	background: #000000;
+	color: #AAAAAA;
+	font-weight: 100;
+}
+
+span {
+	color: red;
+	background-color: #000000;
+}
+
+
+form, div{
+	background-color: #000000;
+}
+
+body { 
+	background-color: #000000;
+}
+
+html {
+	background-color: #000000;
+}

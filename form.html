@@ -4,41 +4,148 @@
   <title>Fort CV Submit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 ​
 <div class="container">
-  <h2>Send us your details</h2>
-  <form class="form-horizontal" action="/getFormData" method="post" enctype="multipart/form-data">
+  <div class="logo" align="center">
+  	<!--<img src="logo.png" alt="FORT" >-->
+  	FORT
+  </div>	
+  <h1 >Send us your details</h1>
+  <form class="form-horizontal" action="/getFormData" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Full name:</label>
-      <div class="col-sm-10">          
-        <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname">
+      <label style="font-weight: 400" class="control-label col-sm-2" for="name">First name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" placeholder="Enter first name" name="name" required>
+      	<span id="firstname_error_field"></span>         
       </div>
     </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Surname:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname" required>
+      	<span id="surname_error_field"></span>         
+      </div>
+    </div>
+    
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        <span id="email_error_field"></span>
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="fileupload">CV:</label>
+	
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="mobile">Contact number:</label>
       <div class="col-sm-10">
-        <input type="file" class="form-control" id="fileupload" name="fileupload">
+        <input type="number" class="form-control" id="mobile" placeholder="Enter contact number" name="mobile" required>
+        <span id="mobile_error_field"></span>
       </div>
     </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="dob">Date of birth:</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" id="dob" placeholder="Enter date of birth" name="dob" required>
+        <span id="dob_error_field"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Position:</label>
+      <div class="col-sm-10">
+        <select class="form-control" id="position" name="position" required="" style="background-color: #000; color: #AAA">
+              <option value="">Select Position</option>
+              <option value="Director">Director</option>
+              <option value="Copywriter">Copywriter</option>
+              <option value="Production Manager">Production Manager</option>
+              <option value="Graphic Designer">Graphic Designer</option>
+              <option value="Photographer">Photographer</option>
+              <option value="Editor">Editor</option>
+              <option value="Social Media Analyst">Social Media Analyst</option>
+              <option value="Marketing"> Marketing</option>
+              <option value="Project Manager">Project Manager</option>
+              <option value="Art Director">Art Director</option>
+              <option value="Animator">Animator</option>
+              <option value="Account Manager">Account Manager</option>
+              <option value="Camera Operator">Camera Operator</option>
+              <option value="MakeUp &amp; Hair">MakeUp &amp; Hair</option>
+              <option value="Wardrobe">Wardrobe</option>
+              <option value="DOP">DOP</option>
+              <option value="Other">Other</option>
+        </select> 
+        <span id="position_error_field"></span> 
+      </div>
+    </div>
+    
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Qualification:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="qualification" placeholder="Enter qualification" name="qualification" required>
+      	<span id="qualification_error_field"></span>         
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Portolio Link:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="portfolio" placeholder="Enter portfolio" name="portfolio">
+      	<span id="portfolio_error_field"></span>         
+      </div>
+    </div>
+        
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="cvupload">CV:</label>
+      <div class="col-sm-10">
+        <input type="file" class="form-control" id="cvupload" name="cvupload" accept=".pdf" required>
+        <span id="cv_error_field"></span>
+      </div>
+    </div>
+    
+
+
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" >Submit</button>
       </div>
     </div>
+
   </form>
 </div>
-​
+​<script>
+	//do form validation here
+	function validateForm(){
+		console.log('validating form')
+		var error = false;
+		var n = document.getElementById("name").value;
+		var sn = document.getElementById("surname").value;
+		var m = document.getElementById("mobile").value;
+		var e = document.getElementById("email").value;
+		var f = document.getElementById("cvupload").value;
+		var p = document.getElementById("portfolio").value;
+		
+
+		if (m.length != 10){
+			document.getElementById("mobile_error_field").innerHTML = "Please enter a valid phone number";
+			error = true;
+
+		}
+
+		return !error;
+	}
+</script>
+
 </body>
 </html>
 ​
