@@ -3,16 +3,21 @@ var path = require('path');
 var formidable = require('formidable');
 var mc = require('mongodb').MongoClient;
 var fs = require('fs');
-var validator = require('express-validator'); 
 var dbUrl = "mongodb://localhost:27017/FortCandidates";
 
 var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function (req, res){
-    res.sendFile(__dirname + '/form.html');
+app.get('/', function(req,res){
+	res.sendFile(__dirname+'/form.html');
 });
+
+//for dashboard login
+ app.get('/login', function(req, res){
+ 	res.sendFile(__dirname+'/login.html');
+});
+
 
 app.post('/getFormData', function (req, res){
 	var name = '';
@@ -108,16 +113,41 @@ app.post('/getFormData', function (req, res){
 });
 
 //this will display all db entries
-app.get('/dashboard', function(req, res){
-	mc.connect(dbUrl, function(err, db){
-		if (err) throw err;
-		var col = db.db('FortCandidates');
-		col.collection('candidates').find({}).toArray(function(err, result){
-			if (err) throw err;
-			res.render('pages/dash', {people: result});
-			db.close();
-		});
-	});
+app.post('/dashboard', function(req, res){
+	var valid = true;
+	var form = new formidable.IncomingForm();
+    form.parse(req);
+
+    form.on('field', function(fname, field){
+    	switch (fname){
+    		case 'uname':
+    			if ( field != 'manager'){
+    				valid = false;
+    			}
+    			break;
+    		case 'pwd':
+    			if ( field != 'P@ssw0rd!'){
+    				valid = false;
+    			}	
+    	}
+    });
+
+    form.on('end', function(){
+    	if ( valid ){
+    		mc.connect(dbUrl, function(err, db){
+				if (err) throw err;
+				var col = db.db('FortCandidates');
+				col.collection('candidates').find({}).toArray(function(err, result){
+					if (err) throw err;
+					db.close();
+					res.render('pages/dash', {people: result});
+				});
+			});	
+    	} else {
+    		res.end('Invalid login credentials');
+    	}
+    });
+
 });
 
 //this will return a specific resume
@@ -158,6 +188,18 @@ function storeData(postData){
 		col.collection('candidates').insertOne(dbItem,  function(err, res){
 			if (err) throw err;
 			db.close();
+		});
+	});
+}
+
+function displayAllCandidates(){
+	mc.connect(dbUrl, function(err, db){
+		if (err) throw err;
+		var col = db.db('FortCandidates');
+		col.collection('candidates').find({}).toArray(function(err, result){
+			if (err) throw err;
+			db.close();
+			res.render('pages/dash', {people: result});
 		});
 	});
 }
