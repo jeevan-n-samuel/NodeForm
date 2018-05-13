@@ -27,8 +27,8 @@ input, label {
 
 h1{
 	font-weight: 900;
-	text-align: left;
-	font-size: 16px;
+	text-align: center;
+	font-size: 30px;
 }
 
 select.form-control{
@@ -44,7 +44,18 @@ label{
 	font-weight: 400;
 }
 
-button[type='submit']{
+.btn btn-info{
+	background: transparent;
+  border: none;
+  /*border-bottom: thin solid #FFF;*/
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: 900;
+  color: #AAA;	
+}
+
+input[type='submit']{
   background: transparent;
   border: none;
   /*border-bottom: thin solid #FFF;*/
@@ -68,7 +79,7 @@ html {
   margin: 2em;
 }
 
-input[type="text"], input[type="email"], input[type="number"], input[type="file"], input[type="date"], input[type='password'],
+input[type="text"], input[type="email"], input[type="number"], input[type="file"], input[type="date"], input[type="password"],
 select.form-control {
   background: transparent;
   border: none;
@@ -78,7 +89,7 @@ select.form-control {
   border-radius: 0;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="file"]:focus, input[type="date"]:focus, input[type="password"]:focus,
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="file"]:focus, input[type="date"]:focus, input[type="password"],
 select.form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -91,13 +102,13 @@ span {
 }
 
 
-/*form, div{
+form, div{
 	background-color: #000000;
-}*/
+}
 
-/*body { 
+body { 
 	background-color: #000000;
-}*/
+}
 
 html {
 	background-size: inherit;

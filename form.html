@@ -10,60 +10,57 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body background="bg.png">
 ​
 <div class="container">
-  <div class="logo" align="center">
-  	<!--<img src="logo.png" alt="FORT" >-->
-  	FORT
-  </div>	
-  <h1 >Send us your details</h1>
+  <img src="Fort-Logo.png" alt="FORT" class="img-responsive align="right" style="margin-left: auto; margin-right:auto; width: 50%; height: 50%;">
+  <h1 >SEND US YOUR DETAILS</h1><br>
   <form class="form-horizontal" action="/getFormData" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" autocomplete="off">
     
     <div class="form-group">
-      <label style="font-weight: 400" class="control-label col-sm-2" for="name">First name:</label>
       <div class="col-sm-10">
+      	<label for="name">First name:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter first name" name="name" required>
       	<span id="firstname_error_field"></span>         
       </div>
     </div>
     
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Surname:</label>
       <div class="col-sm-10">
+      	<label for="pwd">Surname:</label>
         <input type="text" class="form-control" id="surname" placeholder="Enter surname" name="surname" required>
       	<span id="surname_error_field"></span>         
       </div>
     </div>
     
     <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
+      	<label for="email">Email:</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
         <span id="email_error_field"></span>
       </div>
     </div>
 	
 	<div class="form-group">
-      <label class="control-label col-sm-2" for="mobile">Contact number:</label>
       <div class="col-sm-10">
+      	<label for="mobile">Contact number:</label>
         <input type="number" class="form-control" id="mobile" placeholder="Enter contact number" name="mobile" required>
         <span id="mobile_error_field"></span>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="dob">Date of birth:</label>
       <div class="col-sm-10">
+      	<label for="dob">Date of birth:</label>
         <input type="date" class="form-control" id="dob" placeholder="Enter date of birth" name="dob" required>
         <span id="dob_error_field"></span>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Position:</label>
       <div class="col-sm-10">
-        <select class="form-control" id="position" name="position" required="" style="background-color: #000; color: #AAA">
+      	<label for="pwd">Position:</label>
+        <select class="form-control" id="position" name="position" required="" >
               <option value="">Select Position</option>
               <option value="Director">Director</option>
               <option value="Copywriter">Copywriter</option>
@@ -89,16 +86,16 @@
     
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Qualification:</label>
       <div class="col-sm-10">
+      	<label for="pwd">Qualification:</label>
         <input type="text" class="form-control" id="qualification" placeholder="Enter qualification" name="qualification" required>
       	<span id="qualification_error_field"></span>         
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Portolio Link:</label>
       <div class="col-sm-10">
+      	<label for="pwd">Portolio Link:</label>
         <input type="text" class="form-control" id="portfolio" placeholder="Enter portfolio" name="portfolio">
       	<span id="portfolio_error_field"></span>         
       </div>
@@ -106,8 +103,8 @@
         
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="cvupload">CV:</label>
       <div class="col-sm-10">
+      	<label for="cvupload">CV:</label>
         <input type="file" class="form-control" id="cvupload" name="cvupload" accept=".pdf" required>
         <span id="cv_error_field"></span>
       </div>
@@ -116,8 +113,8 @@
 
 
     <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default" >Submit</button>
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </div>
 
