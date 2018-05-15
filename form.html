@@ -4,7 +4,7 @@
   <title>Fort CV Submit</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,900" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -107,50 +107,31 @@
       	<label for="cvupload">CV:</label>
         <input type="file" class="form-control" id="cvupload" name="cvupload" accept=".pdf" required>
         <span id="cv_error_field"></span>
-        <progress id="progress_bar" value="0" max="100">
       </div>
     </div>
     
-
-
     <div class="form-group">        
       <div class="col-sm-10">
-        <button type="submit" class="btn btn-default" onclick="uploadFile()">Submit</button>
+        <button type="submit" class="btn btn-default" data-toggle="modal" href="#loadModal" onclick="uploadFile()">Submit</button>
       </div>
     </div>
 
   </form>
+  <div class="modal-sm fade" id="loadModal"></div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-
-​<script>
+<script>
 	//file upload progress here
 	function uploadFile() {
-	  var xhr = new XMLHttpRequest();
-	  //var fd = document.getElementById('form1').getFormData();
+		console.log('Trying to show progress bar')
+		var xhr = new XMLHttpRequest();
 
-	  /* event listners */
-	  xhr.upload.addEventListener("progress", uploadProgress, false);
-	  xhr.addEventListener("load", uploadComplete, false);
-	  xhr.addEventListener("error", uploadFailed, false);
-	  xhr.addEventListener("abort", uploadCanceled, false);
-	  /* Be sure to change the url below to the url of your upload server side script */
-	  //xhr.open("POST", "UploadMinimal.aspx");
-	  //xhr.send(fd);
+		xhr.upload.addEventListener("progress", progressFunction, false);  
+        xhr.upload.addEventListener("load", transferCompleteFunction, false);
 	}
 
-	function uploadProgress(evt) {
-	  if (evt.lengthComputable) {
-	    var percentComplete = Math.round(evt.loaded * 100 / evt.total);
-	    document.getElementById('progress_bar').value = percentComplete;  
-	    // document.getElementById('progressNumber').innerHTML = percentComplete.toString() + '%';
-	  }
-	  else {
-	    //document.getElementById('progressNumber').innerHTML = 'unable to compute';
-	  }
+	function progressFunction(e){
+		console.log('In progress function');
 	}
-
 
 	//do form validation here
 	function validateForm(){
