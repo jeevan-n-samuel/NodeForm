@@ -112,7 +112,7 @@
     
     <div class="form-group">        
       <div class="col-sm-10">
-        <button type="submit" class="btn btn-default" data-toggle="modal" href="#loadModal" onclick="uploadFile()">Submit</button>
+        <button type="submit" class="btn btn-default" onclick="uploadFile()">Submit</button>
       </div>
     </div>
 
@@ -122,6 +122,7 @@
 <script>
 	//file upload progress here
 	function uploadFile() {
+		$("#loadModal").modal();
 		console.log('Trying to show progress bar')
 		var xhr = new XMLHttpRequest();
 

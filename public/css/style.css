@@ -12,7 +12,7 @@ tr:hover {
   background-color: #111;
 }
 
-.modal {
+#loadModal {
   border: 2px solid #f3f3f3;
   border-radius: 50%;
   border-top: 2px solid #FFF;
