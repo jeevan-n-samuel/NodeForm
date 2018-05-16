@@ -117,17 +117,17 @@
     </div>
 
   </form>
-  <div class="modal-sm fade" id="loadModal"></div>
+  <div class="modal-sm fade" id="loadModal">
+  	<div class="modal-content">
+  		This is a loading modal;
+  	</div>
+  </div>
 </div>
 <script>
 	//file upload progress here
 	function uploadFile() {
 		$("#loadModal").modal();
-		console.log('Trying to show progress bar')
-		var xhr = new XMLHttpRequest();
-
-		xhr.upload.addEventListener("progress", progressFunction, false);  
-        xhr.upload.addEventListener("load", transferCompleteFunction, false);
+		console.log('Trying to loading modal');
 	}
 
 	function progressFunction(e){
