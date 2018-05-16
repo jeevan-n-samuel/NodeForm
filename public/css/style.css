@@ -13,7 +13,16 @@ tr:hover {
 }
 
 #loadModal {
-  border: 2px solid #f3f3f3;
+  z-index: 99 !important;
+  display: none;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  position: absolute;
+  align-self: center;
+  border: 2px solid #AAA;
   border-radius: 50%;
   border-top: 2px solid #FFF;
   border-bottom: 2px solid #FFF;

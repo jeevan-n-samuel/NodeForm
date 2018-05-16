@@ -34,9 +34,12 @@
 	}
 	</script>
 </head>
+
 <body background="bg.png">
 ​
 <div class="container">
+  <div class="modal-sm fade" id="loadModal"></div>
+
   <img src="Fort-Logo.png" alt="FORT" class="img-responsive align="right" style="margin-left: auto; margin-right:auto; width: 50%; height: 50%;">
   <h1 >SEND US YOUR DETAILS</h1><br>
   <form class="form-horizontal" action="/getFormData" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" autocomplete="off">
@@ -143,10 +146,7 @@
   </form>
   </div>
 </div>
-<div class="modal-sm fade" id="loadModal">
-	<div class="modal-content">
-		This is a loading modal;
-</div>
+
 
 </body>
 </html>
